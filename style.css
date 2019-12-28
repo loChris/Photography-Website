@@ -27,10 +27,11 @@ html {
     --heading3: calc(3rem + 1vw);
     --heading4: calc(2.4rem + 1vw);
     --text: calc(1.5rem + 1vw);
-    --bigText: calc(2.4rem + 1vw);
+    --bigText: calc(6rem + 1vw);
     --specialPurple: #906272;
     --mainBackgroundColor: #414141;
     --mainGrayTextColor: #525252;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -283,6 +284,85 @@ nav {
     display: none;
 }
 
+/* CONTACT */
+.contact {
+    min-height: 90vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contact img {
+    flex: 1 1 40rem;
+}
+
+.form-wrapper {
+    flex: 3 1 40rem;
+}
+
+.form-wrapper h2 {
+    margin: 5rem 0;
+}
+
+.form-wrapper span {
+    font-size: var(--bigText);
+    color: var(--specialPurple)
+}
+
+.form-wrapper label {
+    display: block;
+}
+
+.form-wrapper input {
+    display: block;
+    margin: 3rem 0;
+    background: var(--mainBackgroundColor);
+    color: white;
+    border: none;
+    padding: 1rem;
+}
+
+.form-wrapper input:focus {
+    border: .1rem solid var(--specialPurple);
+}
+
+.form-wrapper button {
+    padding: 1rem 8rem;
+    background: var(--specialPurple);
+    color: white;
+    border: none;
+    width: 100%;
+}
+
+.form-wrapper button:hover {
+    cursor: pointer;
+}
+
+.form-wrapper button:focus {
+    border: .1rem solid var(--mainGrayTextColor);
+}
+
+/* FOOTER */
+footer {
+    background: var(--mainBackgroundColor);
+    color: white;
+    display: flex;
+    padding: 3rem 5%;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer ul {
+    display: flex;
+    flex: 1 1 40rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer h4 {
+    flex: 3 1 40rem;
+    font-size: calc(1.4rem + 1vw);
+}
+
 /* MEDIA */
 @media screen and (max-width: 842px) {
     .hero {
@@ -297,6 +377,7 @@ nav {
     .burger {
         position: relative;
         display: block;
+        cursor: pointer;
     }
 
     .burger span {
@@ -325,37 +406,22 @@ nav {
         transition: transform 1s ease;
     }
 
-    .menu-check {
-        position: absolute;
-        top: 50%;
-        right: 5%;
-        transform: translate(5%, -50%);
-        width: 5rem;
-        height: 5rem;
-        cursor: pointer;
-        opacity: 0;
-        z-index: 100;
-        display: block;
-    }
-
-    .menu-check:checked+.nav-links {
+    .nav-open {
         transform: translateX(-100%);
     }
 
-    .menu-check:checked~.burger span {
+    .toggle .line1 {
+        transform: rotateZ(45deg) translateY(300%);
         background: white;
     }
 
-    .menu-check:checked~.burger span:nth-child(1) {
-        transform: rotateZ(45deg) translateY(300%);
-    }
-
-    .menu-check:checked~.burger span:nth-child(2) {
+    .toggle .line2 {
         opacity: 0;
     }
 
-    .menu-check:checked~.burger span:nth-child(3) {
+    .toggle .line3 {
         transform: rotateZ(-45deg) translateY(-300%);
+        background: white;
     }
 
     /* ABOUT SECTION */
@@ -375,5 +441,30 @@ nav {
 
     .gallery-header {
         display: none;
+    }
+
+    .contact img {
+        display: none;
+    }
+
+    footer ul {
+        order: 1;
+    }
+
+    footer h4 {
+        order: 2;
+        text-align: center;
+        padding: 1rem;
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    html {
+        --heading1: 3rem;
+        --heading2: 5rem;
+        --heading3: 3.5rem;
+        --heading4: 4.5rem;
+        --text: 3rem;
+        --bigText: 8rem;
     }
 }
